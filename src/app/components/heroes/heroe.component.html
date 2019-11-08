@@ -1,1 +1,37 @@
-<p>heroe works!</p>
+<h3>Héroe <small>nombre</small></h3>
+<hr>
+
+<div class="row animated fadeIn fast">
+  <div class="col-md-6">
+     <form>
+         <div class="form-group">
+            <label for="">Nombre</label>
+            <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Nombre del heroe"
+                  required>
+         </div>
+         <div class="form-group">
+            <label for="">Bio</label>
+            <textarea
+                  type="text"
+                  class="form-control"
+                  placeholder="Bio del heroe"
+                  required></textarea>
+         </div>
+         <div class="form-group">
+           <label for="">Casa</label>
+           <select
+                  class="form-control"
+                  name="">
+               <option value="Dc">Dc</option>
+               <option value="Marvel">Marvel</option>
+            </select>
+         </div>
+         <div class="form-group text-center">
+            <button class="btn btn-outline-primary" type="submit">Guardar cambios</button>
+         </div>
+     </form>
+  </div>
+</div>
