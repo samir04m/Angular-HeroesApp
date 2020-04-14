@@ -53,4 +53,9 @@ export class HeroesService {
       });
       return this.http.get(this.heroesURL, { headers }).pipe( map((resp: Heroe[]) => resp ) );
    }
+
+   borrarHeroe(key$:string){
+      let url = `${ this.heroeURL }/${ key$ }.json`;
+      return this.http.delete(url).pipe( map(resp => resp ) );
+   }
 }

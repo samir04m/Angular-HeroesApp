@@ -26,6 +26,10 @@
                   <td>{{ i+1 }}</td>
                   <td>{{ heroes[k].nombre }}</td>
                   <td>{{ heroes[k].casa }}</td>
+                  <td>
+                     <button [routerLink]="['/heroe', k]" class="btn btn-sm btn-outline-success mx-1">Edit</button>
+                     <button (click)="borrar(k)" class="btn btn-sm btn-outline-danger mx-1">Delete</button>
+                  </td>
                </tr>
             </tbody>
          </table>
