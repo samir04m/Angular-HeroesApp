@@ -9,7 +9,7 @@ import { Heroe } from '../interfaces/heroe.interface';
 export class HeroesService {
 
    heroesURL:string =  "https://heroesapp-656e5.firebaseio.com/heroes.json";
-   heroeURL:string =  "https://heroesapp-656e5.firebaseio.com/heroe/";
+   heroeURL:string =  "https://heroesapp-656e5.firebaseio.com/heroes/";
 
    constructor(private http:HttpClient) { }
 
@@ -36,5 +36,14 @@ export class HeroesService {
          console.log("service actualizarHeroe ", resp);
          return resp;
       }));
+   }
+
+   getHeroe(key$:string){
+      let headers = new HttpHeaders({
+         'Content-Type': 'application/json'
+      });
+      let url = `${ this.heroeURL }/${ key$ }.json`;
+
+      return this.http.get(url, { headers }).pipe( map((resp: Heroe) => resp ) );
    }
 }
