@@ -12,6 +12,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeroesService } from './services/heroes.service';
 
 import { app_routing } from './app.routes';
+import { KeysPipe } from './pipes/keys.pipe';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { app_routing } from './app.routes';
     AppComponent,
     HeroesComponent,
     HeroeComponent,
-    NavbarComponent
+    NavbarComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,

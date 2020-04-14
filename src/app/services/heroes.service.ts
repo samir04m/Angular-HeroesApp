@@ -46,4 +46,11 @@ export class HeroesService {
 
       return this.http.get(url, { headers }).pipe( map((resp: Heroe) => resp ) );
    }
+
+   getHeroes(){
+      let headers = new HttpHeaders({
+         'Content-Type': 'application/json'
+      });
+      return this.http.get(this.heroesURL, { headers }).pipe( map((resp: Heroe[]) => resp ) );
+   }
 }
