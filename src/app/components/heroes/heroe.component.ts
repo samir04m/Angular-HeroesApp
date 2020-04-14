@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { Heroe } from '../../interfaces/heroe.interface';
 import { HeroesService } from '../../services/heroes.service';
@@ -18,20 +18,36 @@ export class HeroeComponent implements OnInit {
       casa:"Dc"
    }
 
+   nuevo:boolean = false;
+   id:string;
+
    constructor(private _heroesService:HeroesService,
-               private router:Router) { }
+               private router:Router,
+               private _activatedRoute:ActivatedRoute) {
+
+      this._activatedRoute.params.subscribe(
+         parametros =>  this.id = parametros['id']
+      );
+
+   }
 
    guardar(){
-      console.log(this.heroe);
+      console.log("this.heroe ", this.heroe);
 
-      // this._heroesService.nuevoHeroe(this.heroe).subscribe(data=>{
-      //
-      // });
-      this._heroesService.nuevoHeroe(this.heroe)
-          .subscribe(data => {
-            this.router.navigate(['/heroe',data.name])
+      if (this.id == "nuevo") {
+
+         this._heroesService.nuevoHeroe(this.heroe).subscribe(data => {
+            this.router.navigate(['/heroe',data['name']])
          },
          error=>console.log(error));
+
+      }else{
+         this._heroesService.actualizarHeroe(this.heroe, this.id).subscribe(data => {
+            console.log("actualizarHeroe", data)
+         },
+         error=>console.log(error));
+      }
+
    }
 
    ngOnInit() {
