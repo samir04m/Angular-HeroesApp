@@ -14,6 +14,8 @@ import { HeroesService } from './services/heroes.service';
 import { app_routing } from './app.routes';
 import { KeysPipe } from './pipes/keys.pipe';
 
+import { NgxSpinnerModule } from "ngx-spinner";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { KeysPipe } from './pipes/keys.pipe';
     AppRoutingModule,
     FormsModule,
     app_routing,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
   ],
   providers: [
      HeroesService

@@ -33,7 +33,8 @@
            <label for="">Casa</label>
            <select [(ngModel)]="heroe.casa"
                   name="casa"
-                  class="form-control">
+                  class="form-control"
+                  required>
                <option value="Dc">Dc</option>
                <option value="Marvel">Marvel</option>
             </select>
@@ -47,3 +48,5 @@
      </form>
   </div>
 </div>
+
+<ngx-spinner></ngx-spinner>

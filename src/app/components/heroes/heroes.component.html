@@ -1,24 +1,26 @@
-<h2>Heroes</h2>
-<hr>
-
-<div class="row mb-3">
-   <div class="col-md-12 text-right">
-      <button [routerLink]="['/heroe','nuevo']"
-         class="btn btn-primary">Nuevo heroe +</button>
+<h2>Listado de Heroes
+   <div class="float-right">
+      <button [routerLink]="['/heroe','nuevo']" class="btn btn-primary">Nuevo +</button>
    </div>
-</div>
+</h2>
+<hr>
 
 <div class="row animated fadeIn fast">
    <div class="col-md-12">
-      <div class="table-responsive">
 
+      <div class="alert alert-secondary" role="alert" *ngIf="!heroes">
+         <span>No hay registros</span>
+      </div>
+
+      <div class="table-responsive" *ngIf="heroes">
          <table class="table">
             <thead class="thead-dark">
                <tr>
                   <th>#</th>
                   <th>Nombre</th>
                   <th>Casa</th>
-                  <th>Opciones</th>
+                  <th>Bio</th>
+                  <th class="text-right">Opciones</th>
                </tr>
             </thead>
             <tbody>
@@ -26,7 +28,8 @@
                   <td>{{ i+1 }}</td>
                   <td>{{ heroes[k].nombre }}</td>
                   <td>{{ heroes[k].casa }}</td>
-                  <td>
+                  <td>{{ heroes[k].bio }}</td>
+                  <td class="text-right">
                      <button [routerLink]="['/heroe', k]" class="btn btn-sm btn-outline-success mx-1">Edit</button>
                      <button (click)="borrar(k)" class="btn btn-sm btn-outline-danger mx-1">Delete</button>
                   </td>
@@ -37,3 +40,5 @@
       </div>
    </div>
 </div>
+
+<ngx-spinner></ngx-spinner>
